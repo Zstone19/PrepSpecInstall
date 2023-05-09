@@ -92,7 +92,7 @@ __NOTE__: You may need to point the install toward the ``gcc`` library. You can 
 ### 1.8 Set environmental variables
 Now that we've installed PGPLOT, we need to set environmental variables to point towards our installation directory:
 ```
-export PGPLOT_DIR=/usr/local/pgplot
+export PGPLOT_DIR=/path/to/cwd/pgplot_install
 export PGPLOT_DEV=/Xserve
 
 export LD_LIBRARY_PATH=/path/to/cwd/pgplot:$LD_LIBRARY_PATH
