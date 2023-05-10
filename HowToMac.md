@@ -2,11 +2,14 @@
 
 ## Step 0: Install ``ifort``
 
-### Steps 0.1: Get ifort files
-Go to 
+### Step 0.1: Get ``ifort`` files
+https://www.intel.com/content/www/us/en/developer/articles/tool/oneapi-standalone-components.html#fortran
 
-
-
+### Step 0.2: Setup ``ifort``
+You can choose to enter this in every terminal you wish to use ``ifort`` in. I've put these in my ```~/.zprofile`` file to do this automatically.
+```
+source /opt/intel/oneapi/setvars.sh
+```
 
 
 
