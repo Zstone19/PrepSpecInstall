@@ -17,41 +17,56 @@ source /opt/intel/oneapi/setvars.sh
 There are a couple of different ways of doing this on MacOS. See the following webpages:
 * https://guaix.fis.ucm.es/~ncl/howto/howto-pgplot
 * https://sites.astro.caltech.edu/~tjp/pgplot/macos/
+* https://github.com/kazuakiyama/homebrew-pgplot
 
-Since it's easiest, I'll be installing using MacPorts.
+Since it's easiest, I'll be installing using Homebrew.
 
-### Step 1.1: Install MacPorts
-https://www.macports.org/install.php
-
-### Step 1.2: Install X11 (optional)
-You may need to install X11 if it isn't already installed on your system. A good way to check this is to type ``xclock`` into your terminal and seeing if a clock pops up.
-This can be done through MacPorts:
+### Step 1.1: Install Homebrew
 ```
-sudo port install xorg-server
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-
-Or if you want all Xorg products:
-```
-sudo port install xorg
-```
-
-__NOTE__: If you already have X11 (or XQuartz) installed and install it again through MacPorts, it may mess things up. I've had to revert to an old backup of mine because of this. :(
-
 
 ### Step 1.3: Install PGPLOT
 ```
-sudo port install pgplot
+brew install kazuakiyama/pgplot/pgplot
 ```
+__NOTE__: You may need to install X11/XQuartz separately. this already came installed on my mac so i had no issues. You can do this through MacPorts or the XQuartz website.
+
 
 ### Step 1.4: Set environmental variables
 This may be different depending on the type of shell you use and/or your version of MacOS. On Ventura, using zsh, I had to alter my ``~/.zprofile`` file.
 You need to set the following variables:
 ```
-export PGPLOT_DIR=/opt/local/lib
+PGPLOT_DIR=`brew --prefix pgplot`/share
+if [ -e $PGPLOT_DIR ]; then
+  export PGPLOT_DIR=$PGPLOT_DIR
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PGPLOT_DIR
+fi
+
 export PGPLOT_DEV=/Xserve
 ```
 
 ### Step 1.5: Test PGPLOT
-PGPGLOT has a number of demo scripts it makes, which you can use to test if it's working. I used MacPorts to install, so all of the demo files are located in ``/opt/local/share/pgplot/examples``, and will be named ``pgdemoN``, where N is an integer.
+PGPGLOT has a number of demo scripts it makes, which you can use to test if it's working. I used MacPorts to install, so all of the demo files are located in ``$PGPLOT_DIR/examples``, and will be named ``pgdemoN``, where N is an integer.
 
+
+
+
+
+## Step 3: Install PrepSpec
+
+## Step 3.1: Get PrepSpec files
+```
+wget http://star-www.st-and.ac.uk/~kdh1/lib/prepspec/prepspec.tar.gz
+```
+__NOTE__: You can use Homebrew to install ``wget``.
+
+
+## Step 3.2: Unzip
+```
+tar -xvf prepspec.tar.gz
+```
+
+## Step 3.3 Compile
+This is __the__ hardest part.
 
