@@ -87,5 +87,5 @@ gfortran -mdynamic-no-pic -O3 -fallow-argument-mismatch -fno-automatic -ffixed-l
 
 #### Option B: MacPorts X11
 ```
-gfortran -mdynamic-no-pic -O3 -fallow-argument-mismatch -fno-automatic -ffixed-line-length-132 —fopenmp o prepspec.sh prepspec.for misc.for -L/opt/local/share/pgplot -L/opt/local/lib -lpgplot -Wl,-headerpad_max_install_names -L/opt/local/lib -Wl,-rpath,/opt/local/lib/libgcc -L/opt/local/lib -lX11
+gfortran -mdynamic-no-pic -O3 -fallow-argument-mismatch -fno-automatic -ffixed-line-length-132 —fopenmp -o prepspec.sh prepspec.for misc.for -L/opt/local/share/pgplot -L/opt/local/lib -lpgplot -Wl,-headerpad_max_install_names -L/opt/local/lib -Wl,-rpath,/opt/local/lib/libgcc -L/opt/local/lib -lX11
 ```
