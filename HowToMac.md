@@ -13,8 +13,8 @@ I've only found both ``gfortran`` and ``nagfor`` to work on an ARM64 Mac, so I'l
 
 ## Step 0.5: Install X11
 PrepSpec relies on X11 to output its plots, so you'll need to install it if you don't have it already. New Macs have it installed already, but you can get it through a number of ways:
-* ``homebrew``
-* ``macports``
+* Homebrew - https://brew.sh/
+* Macports - https://www.macports.org/
 * https://www.xquartz.org/
 
 It should be fine to install multiple versions of X11/Xquartz, though it did ruin my installation once so be weary.
@@ -29,7 +29,7 @@ There are a couple of different ways of doing this on MacOS. See the following w
 
 Since it's easiest, I'll be installing using MacPorts.
 
-### Step 1.1: Install Homebrew
+### Step 1.1: Install MacPorts
 https://www.macports.org/install.php
 
 ### Step 1.3: Install PGPLOT
