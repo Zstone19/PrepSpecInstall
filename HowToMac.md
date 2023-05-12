@@ -8,13 +8,13 @@ This is the crux of the issue (besides compiling) for getting PrepSpec to work. 
 * ``nagfor``
 * ``lfortran``
 
-I've only found both ``gfortran`` and ``nagfor`` to work on an ARM64 Mac, so I'll be sticking with ``gfortran``. You can usually install these compilers through ``homebrew`` or ``macports``, but sometimes a source installation may be necessary.
+I've only found both ``gfortran`` and ``nagfor`` to work on an ARM64 Mac, so I'll be sticking with ``gfortran``. You can usually install these compilers through Homebrew or MacPorts, but sometimes a source installation may be necessary.
 
 
 ## Step 0.5: Install X11
 PrepSpec relies on X11 to output its plots, so you'll need to install it if you don't have it already. New Macs have it installed already, but you can get it through a number of ways:
-* Homebrew - https://brew.sh/
-* Macports - https://www.macports.org/
+* [Homebrew](https://brew.sh/)
+* [Macports](https://www.macports.org/)
 * https://www.xquartz.org/
 
 It should be fine to install multiple versions of X11/Xquartz, though it did ruin my installation once so be weary.
