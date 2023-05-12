@@ -54,19 +54,19 @@ PGPGLOT has a number of demo scripts it makes, which you can use to test if it's
 
 ## Step 3: Install PrepSpec
 
-## Step 3.1: Get PrepSpec files
+### Step 3.1: Get PrepSpec files
 ```
 wget http://star-www.st-and.ac.uk/~kdh1/lib/prepspec/prepspec.tar.gz
 ```
 __NOTE__: You can use Homebrew to install ``wget``.
 
 
-## Step 3.2: Unzip
+### Step 3.2: Unzip
 ```
 tar -xvf prepspec.tar.gz
 ```
 
-## Step 3.3 Compile
+### Step 3.3 Compile
 This is __the__ hardest part. Each compiler has different options it needs. I'll just be listing the ones I found to work for ``gfortran``.
 
 Firstly, I found that the libraries it links to can get messed up if your PATH directories are in the wrong order. I put this in my ``~/.zprofile`` file to fix this:
@@ -79,13 +79,13 @@ Now, there are different options for the library linking steps depending on wher
 The only fancy thing I've done is to compile with OpenMP to make things quicker. For inspiration with other compilers, you can try using my examples or looking at the ``prepspec.com`` file.
 
 
-### Option A: Apple X11
+#### Option A: Apple X11
 ```
 gfortran -mdynamic-no-pic -O3 -fallow-argument-mismatch -fno-automatic -ffixed-line-length-132 -fopenmp -o prepspec.sh prepspec.for misc.for -L/opt/X11/lib -lX11 -L/opt/local/share/pgplot -L/opt/local/lib -lpgplot -Wl,-headerpad_max_install_names -L/opt/local/lib -Wl,-rpath,/opt/local/lib/libgcc
 ```
 
 
-### Option B: MacPorts X11
+#### Option B: MacPorts X11
 ```
 gfortran -mdynamic-no-pic -O3 -fallow-argument-mismatch -fno-automatic -ffixed-line-length-132 —fopenmp o prepspec.sh prepspec.for misc.for -L/opt/local/share/pgplot -L/opt/local/lib -lpgplot -Wl,-headerpad_max_install_names -L/opt/local/lib -Wl,-rpath,/opt/local/lib/libgcc -L/opt/local/lib -lX11
 ```
